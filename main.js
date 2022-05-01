@@ -15,4 +15,4 @@ async function generateRandomWords (){
     return console.log(data[0]);
 }
 
-generateRandomWords();
+// generateRandomWords();
