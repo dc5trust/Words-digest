@@ -1,4 +1,50 @@
 #list-main-container{
     background-color: bisque;
-    min-height: 80vh;
+    min-height: 94.5vh;
+    .title-list-container{
+        height: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+            .title-list{    
+                font-size: 2.5rem;
+            }
+    }
+
+    
+}
+
+.list-container{
+    background-color:aquamarine;
+    display: flex;
+    height: 80vh;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    .item{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 6.5rem;
+        margin: .5rem;
+        width: 40rem;
+        background-color: cadetblue;
+    }
+    .item-content{
+        font-size: 2.5rem;
+    }
+    .delete-btn{
+        padding: 1rem 2rem;
+        &:hover{
+            box-shadow: none;
+        }
+    }
+}
+
+.list-study-btn-container{
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

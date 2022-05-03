@@ -12,6 +12,19 @@ li {
   list-style: none;
 }
 
+button {
+  border: none;
+  background-color: rgb(228, 228, 228);
+  padding: 1.4rem 3rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+}
+button:hover {
+  box-shadow: none;
+}
+
 .nav-container {
   background-color: aqua;
   width: 100%;
@@ -42,7 +55,6 @@ li {
 
 #main-content-body {
   min-height: 93.5vh;
-  background-color: bisque;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,6 +76,7 @@ li {
 }
 #main-content-body .definition {
   font-size: 2.5rem;
+  padding: 3.5rem;
 }
 #main-content-body .line {
   height: 1px;
@@ -73,7 +86,6 @@ li {
   border-radius: 1rem;
 }
 #main-content-body .btn-container {
-  background-color: aquamarine;
   height: 9.5vh;
   width: 45%;
   display: flex;
@@ -83,5 +95,48 @@ li {
 
 #list-main-container {
   background-color: bisque;
-  min-height: 80vh;
+  min-height: 94.5vh;
+}
+#list-main-container .title-list-container {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#list-main-container .title-list-container .title-list {
+  font-size: 2.5rem;
+}
+
+.list-container {
+  background-color: aquamarine;
+  display: flex;
+  height: 80vh;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.list-container .item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 6.5rem;
+  margin: 0.5rem;
+  width: 40rem;
+  background-color: cadetblue;
+}
+.list-container .item-content {
+  font-size: 2.5rem;
+}
+.list-container .delete-btn {
+  padding: 1rem 2rem;
+}
+.list-container .delete-btn:hover {
+  box-shadow: none;
+}
+
+.list-study-btn-container {
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */
