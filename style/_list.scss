@@ -24,12 +24,14 @@
 
     .item{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         height: 6.5rem;
         margin: .5rem;
         width: 40rem;
         background-color: cadetblue;
+        padding: 1.5rem;
+        border-radius: 1.5rem;
     }
     .item-content{
         font-size: 2.5rem;

@@ -10,21 +10,22 @@ const definition = document.querySelector('.definition');
 const saveBtn = document.querySelector('#save-btn');
 const nextBtn = document.querySelector('#next-btn');
 //list 
-const listContainer = document.querySelector('.list-container');
+
 
 //addEventListeners
 nextBtn.addEventListener('click', nextWord);
 saveBtn.addEventListener('click', saveWord);
 
-//word Array 
+//global Variables
 const wordsArray = [];
+let id = 0;
 
 async function generateRandomWords (){
     const result = await fetch('https://random-words-api.vercel.app/word');
     const data = await result.json();
     newWord.innerText = data[0].word;
     definition.innerText = data[0].definition;
-    return console.log(data[0]);
+    return;
 }
 
 generateRandomWords();
@@ -35,27 +36,31 @@ function nextWord(){
 }
 
 function saveWord(){
-   let WordStorage = {word: newWord.innerText , definition: definition.innerText};
-   wordsArray.push(WordStorage);
-}
-//pull a new word, disgard the old word 
-
-//'hit the save button' 
-
-//'create the list of saved
-
-function createListFromWordsArray(){
-    wordsArray.forEach((word)=>{
-        //create item
-        const newItem = document.createElement('div');
-        newItem.setAttribute('class', 'item');
-        //create location to insert word & button
-        const newDeleteBtn = document.createElement('button')
-        newDeleteBtn.setAttribute('class', 'delete-btn');
-
-        const newWordLocation = document.createElement('div');
-        newWordLocation.setAttribute('class', 'item-content');
-        //insert item from wordsArray
-
-    })
+    //check if word already exist, if so, return 'do nothing' 
+   let isWordTheSame = false;
+   
+   let WordStorage = {word: newWord.innerText , definition: definition.innerText, index: id };
+   if(wordsArray.length !== 0){
+        wordsArray.forEach((word)=>{
+            //check if word already exists 
+            if(word.word === WordStorage.word){
+                isWordTheSame = true;
+                return; 
+            }
+        });
+        
+        if(isWordTheSame === false){
+             id++;
+             wordsArray.push(WordStorage);
+             console.log(wordsArray.length);
+             localStorage.setItem('savedWords', JSON.stringify(wordsArray));
+        }
+               
+   }else{
+       id++;
+    wordsArray.push(WordStorage);
+    console.log(wordsArray.length);
+    localStorage.setItem('savedWords', JSON.stringify(wordsArray));
+   }
+   
 }
