@@ -68,5 +68,7 @@ function studyCards(){
     items.forEach((item, index)=>{
         item.remove();
     });
-    //create 
+    //create a study location with CSS 
 }
+
+// localStorage.clear(); 
