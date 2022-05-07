@@ -17,7 +17,7 @@ const studyListBtnContainer = document.querySelector('.flash-card-btn-container'
 listContainer.addEventListener('click', studyFunctionality);
 // studyListBtnContainer.addEventListener('click', studyFunctionality);
 
-// studyBtn.addEventListener('click', studyCards);
+studyBtn.addEventListener('click', studyCards);
 // flipBtn.addEventListener('click', flipCard);
 // nextBtn.addEventListener('click', nextCard);
 //Global Variables
@@ -49,7 +49,8 @@ function createListFromWordsArray(){
 createListFromWordsArray();
 
 function studyFunctionality(e){
-    if(e.target.classList[0] !== 'delete-btn') return 
+    console.log(e.target.classList[0]);
+    // if(e.target.classList[0] !== 'delete-btn') return 
     if(e.target.classList[0] === 'delete-btn'){
         console.log(e.target.parentElement);
         //each item has an ID and this will be used with splice() to locate the item within the array
@@ -63,7 +64,11 @@ function studyFunctionality(e){
         localStorage.setItem('savedWords', JSON.stringify(data));
         itemSelected.remove();
     }else if(e.target.classList[0] === 'flip'){
-
+        flipCard();
+    }else if(e.target.classList[0] === 'previous-flash-card'){
+        previousCard()
+    }else if(e.target.classList[0] === 'next-flash-card'){
+        nextCard();
     }
 }
 
@@ -152,21 +157,30 @@ function flipCard(){
     if(wordLocation.classList[1] === 'word'){
         wordLocation.classList.remove('word');
         wordLocation.classList.add('definition');
-        wordLocation.innerText = data[currentWordIndex].word;
+        wordLocation.innerText = data[currentWordIndex].definition;
         //if word flip to definition
     }else if(wordLocation.classList[1] === 'definition'){
         wordLocation.classList.remove('definition');
         wordLocation.classList.add('word');
         //if definition flip to word 
-        wordLocation.innerText = data[currentWordIndex].definition;
+        wordLocation.innerText = data[currentWordIndex].word;
     }
     
 }
 
 function nextCard(){
     //set currentWordIndex limit depending on the size of the array
-    const wordLocation = document.querySelector('.flash-word');
-    currentWordIndex++;
-    wordLocation.innerText = data[currentWordIndex].word;
+    
+    console.log(data.length);
+    console.log(currentWordIndex);
+    if(currentWordIndex < data.length-1){
+        const wordLocation = document.querySelector('.flash-word');
+        currentWordIndex++;
+        wordLocation.innerText = data[currentWordIndex].word;
+    }else return
+    
 }
 
+function previousCard(){
+
+}
