@@ -7,9 +7,21 @@ const studyBtn = document.querySelector('.study');
 const deleteBtn = document.querySelector('.delete-btn');
 const items = document.querySelectorAll('.item');
 
+//flip, Next, Previous Buttons within the 'study' subsection
+//switch this to target addeventlistener, add it to .list-container ********
+const flipBtn = document.querySelector('.flip');
+const nextBtn = document.querySelector('.next-flash-card');
+const prevBtn = document.querySelector('.previous-flash-card')
+const studyListBtnContainer = document.querySelector('.flash-card-btn-container');
 //addEventlisteners 
-listContainer.addEventListener('click', deleteWordFromList);
-studyBtn.addEventListener('click', studyCards);
+listContainer.addEventListener('click', studyFunctionality);
+// studyListBtnContainer.addEventListener('click', studyFunctionality);
+
+// studyBtn.addEventListener('click', studyCards);
+// flipBtn.addEventListener('click', flipCard);
+// nextBtn.addEventListener('click', nextCard);
+//Global Variables
+let currentWordIndex = 0;
 
 // localStorage.clear();
 function createListFromWordsArray(){
@@ -36,7 +48,7 @@ function createListFromWordsArray(){
 }
 createListFromWordsArray();
 
-function deleteWordFromList(e){
+function studyFunctionality(e){
     if(e.target.classList[0] !== 'delete-btn') return 
     if(e.target.classList[0] === 'delete-btn'){
         console.log(e.target.parentElement);
@@ -50,6 +62,8 @@ function deleteWordFromList(e){
         
         localStorage.setItem('savedWords', JSON.stringify(data));
         itemSelected.remove();
+    }else if(e.target.classList[0] === 'flip'){
+
     }
 }
 
@@ -63,12 +77,96 @@ function reorganizedItemIds(){
 }
 
 function studyCards(){
+    //localstorage is empty return
+    if(data.length === 0) return 
     //delete items
     const items = document.querySelectorAll('.item');
     items.forEach((item, index)=>{
         item.remove();
     });
     //create a study location with CSS 
+    const newflipBtn = document.createElement('button');
+    const newNextBtn = document.createElement('button');
+    const newPreviousBtn = document.createElement('button');
+    //the physical study card
+    const newStudyCard = document.createElement('div');
+    //this where the word is appended
+    const newWordLocation = document.createElement('h3');
+    //this holds both the flip & previous/next containers
+    const newFlashBtnContainer = document.createElement('div');
+    //this holds the flip button 
+    const newFlipBtnContainer = document.createElement('div');
+    //this holds previous & next buttons
+    const newFlashCardInnerContainer = document.createElement('div');
+    //flash card get added to list-container 
+    newStudyCard.setAttribute('class', 'flash-card');
+    listContainer.append(newStudyCard);
+    //add word location to study card
+    newWordLocation.setAttribute('class', 'flash-word word');
+    newStudyCard.append(newWordLocation);
+    newWordLocation.innerText = data[0].word;
+    
+    newFlashBtnContainer.setAttribute('class', 'flash-card-btn-container');
+    listContainer.append(newFlashBtnContainer);
+    newFlipBtnContainer.setAttribute('class', 'flip-btn-inner-container');
+    newFlashBtnContainer.append(newFlipBtnContainer);
+
+    newflipBtn.setAttribute('class', 'flip');
+    newflipBtn.innerText = 'FLIP';
+    newFlipBtnContainer.append(newflipBtn);
+
+    newFlashCardInnerContainer.setAttribute('class', 'flash-card-btn-inner-container');
+    listContainer.append(newFlashBtnContainer);
+    newFlashCardInnerContainer.append(newPreviousBtn);
+    newFlashCardInnerContainer.append(newNextBtn);
+
+    listContainer.append(newFlashCardInnerContainer);
+
+    newNextBtn.setAttribute('class', 'next-flash-card');
+    newNextBtn.innerText = 'NEXT'
+    newPreviousBtn.setAttribute('class', 'previous-flash-card');
+    newPreviousBtn.innerText = 'PREVIOUS'
+
+    //hide the study button and reveal the study button after 
+
+    studyBtn.setAttribute('style', 'opacity: 0');
 }
 
 // localStorage.clear(); 
+
+
+
+function flipCard(){
+    const wordLocation = document.querySelector('.flash-word');
+
+    if(data.length === 0) return
+
+    data.forEach((word)=>{
+        console.log(word);
+    });
+    //find current location index 
+    wordLocation.innerText = data[currentWordIndex].word;
+    console.log(wordLocation.classList[1]);
+    
+    
+    if(wordLocation.classList[1] === 'word'){
+        wordLocation.classList.remove('word');
+        wordLocation.classList.add('definition');
+        wordLocation.innerText = data[currentWordIndex].word;
+        //if word flip to definition
+    }else if(wordLocation.classList[1] === 'definition'){
+        wordLocation.classList.remove('definition');
+        wordLocation.classList.add('word');
+        //if definition flip to word 
+        wordLocation.innerText = data[currentWordIndex].definition;
+    }
+    
+}
+
+function nextCard(){
+    //set currentWordIndex limit depending on the size of the array
+    const wordLocation = document.querySelector('.flash-word');
+    currentWordIndex++;
+    wordLocation.innerText = data[currentWordIndex].word;
+}
+

@@ -55,4 +55,33 @@
     background-color: brown;
     height: 60rem;
     width: 60rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .flash-word{
+        font-size: 3rem;
+    }
+
+    
+}
+
+
+.flip-btn-inner-container{
+    // background-color: rgb(168, 178, 175);
+    width: 60rem;
+    margin-top: 1rem;
+    // height: 10rem;
+
+    .flip{
+        width: 100%;
+    }
+}
+
+.flash-card-btn-inner-container{
+    margin-top: 2rem;
+    width: 60rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
