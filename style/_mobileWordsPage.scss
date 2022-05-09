@@ -1,0 +1,103 @@
+@media only screen and (max-width: 624px){
+    .list-container{
+
+        .item{
+            width: 40rem;
+        }
+        .item-content{
+            font-size: 1.8rem;
+        }
+        .delete-btn{
+            padding: .8rem 1.7rem;
+        }
+    }
+
+    .list-study-btn-container{
+
+        .study{
+            padding: 1.8rem 12rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 421px){
+    .list-container{
+
+        .item{
+            width: 30rem;
+        }
+        .item-content{
+            font-size: 1.5rem;
+        }
+        .delete-btn{
+            padding: .8rem 1.5rem;
+        }
+    }
+
+    .list-study-btn-container{
+
+        .study{
+            padding: 1.8rem 12rem;
+        }
+    }
+}
+
+//study cards 
+
+@media only screen and (max-width: 649px){
+    .flash-card{
+        height: 45rem;
+        width: 45rem;
+        .word{
+            font-size: 3.7rem;
+        }
+        .definition{
+            font-size: 1.7rem;
+        }
+    }
+    .flip-btn-inner-container{
+        width: 45rem;
+    }
+
+    .flash-card-btn-inner-container{
+        width: 45rem;
+        
+        .previous-flash-card{
+            
+            width: 20rem;
+        }
+        .next-flash-card{
+
+            width: 20rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 470px){
+    .flash-card{
+        height: 30rem;
+        width: 30rem;
+        .word{
+            font-size: 2rem;
+        }
+        .definition{
+            font-size: 1.4rem;
+        }
+    }
+    .flip-btn-inner-container{
+        width: 30rem;
+    }
+
+    .flash-card-btn-inner-container{
+        width: 30rem;
+        
+        .previous-flash-card{
+            
+            width: 15rem;
+        }
+        .next-flash-card{
+
+            width: 15rem;
+        }
+    }
+}

@@ -15,7 +15,7 @@ li{
 a{
     color: rgb(60, 60, 60);
     text-decoration: none;
-
+    
 }
 button{
     border: none;
@@ -107,9 +107,9 @@ button{
     .btn-container{
         // background-color: aquamarine;
         height: 9.5vh;
-        width: 45%;
+        width: 60rem;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
     }
     #save-btn{
@@ -121,4 +121,5 @@ button{
 
 
 @import 'list';
-@import 'mobile';
+@import 'mobileMainPage';
+@import 'mobileWordsPage';

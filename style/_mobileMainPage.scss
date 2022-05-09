@@ -1,0 +1,65 @@
+@media only screen and (max-width: 690px){
+    a{
+        font-size: 2rem;
+    }
+    .nav-container{
+        .main-title{
+            font-size: 3rem;
+           
+        }
+    }
+    #main-content-body{
+
+        .content-box{
+            height: 40rem;
+            width: 40rem;
+        }
+
+        .btn-container{
+            width: 40rem;
+        }
+        .word{
+            font-size: 3rem;
+        }
+        .definition{
+            font-size: 1.5rem;
+            padding: 3.5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 430px){
+    a{
+        font-size: 2rem;
+    }
+    .nav-container{
+        .main-title{
+            font-size: 2.5rem;
+           
+        }
+    }
+    #main-content-body{
+
+        .content-box{
+            height: 30rem;
+            width: 30rem;
+        }
+
+        .btn-container{
+            width: 30rem;
+        }
+        .word{
+            font-size: 2.5rem;
+        }
+        .definition{
+            font-size: 1.2rem;
+            padding: 3.5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 315px){
+    html{
+        display: none;
+    }
+}

@@ -107,9 +107,9 @@ button:hover {
 }
 #main-content-body .btn-container {
   height: 9.5vh;
-  width: 45%;
+  width: 60rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 #main-content-body #save-btn {
@@ -212,4 +212,140 @@ button:hover {
 }
 .flash-card-btn-inner-container .next-flash-card {
   width: 23rem;
+}
+
+@media only screen and (max-width: 690px) {
+  a {
+    font-size: 2rem;
+  }
+
+  .nav-container .main-title {
+    font-size: 3rem;
+  }
+
+  #main-content-body .content-box {
+    height: 40rem;
+    width: 40rem;
+  }
+  #main-content-body .btn-container {
+    width: 40rem;
+  }
+  #main-content-body .word {
+    font-size: 3rem;
+  }
+  #main-content-body .definition {
+    font-size: 1.5rem;
+    padding: 3.5rem;
+  }
+}
+@media only screen and (max-width: 430px) {
+  a {
+    font-size: 2rem;
+  }
+
+  .nav-container .main-title {
+    font-size: 2.5rem;
+  }
+
+  #main-content-body .content-box {
+    height: 30rem;
+    width: 30rem;
+  }
+  #main-content-body .btn-container {
+    width: 30rem;
+  }
+  #main-content-body .word {
+    font-size: 2.5rem;
+  }
+  #main-content-body .definition {
+    font-size: 1.2rem;
+    padding: 3.5rem;
+  }
+}
+@media only screen and (max-width: 315px) {
+  html {
+    display: none;
+  }
+}
+@media only screen and (max-width: 624px) {
+  .list-container .item {
+    width: 40rem;
+  }
+  .list-container .item-content {
+    font-size: 1.8rem;
+  }
+  .list-container .delete-btn {
+    padding: 0.8rem 1.7rem;
+  }
+
+  .list-study-btn-container .study {
+    padding: 1.8rem 12rem;
+  }
+}
+@media only screen and (max-width: 421px) {
+  .list-container .item {
+    width: 30rem;
+  }
+  .list-container .item-content {
+    font-size: 1.5rem;
+  }
+  .list-container .delete-btn {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .list-study-btn-container .study {
+    padding: 1.8rem 12rem;
+  }
+}
+@media only screen and (max-width: 649px) {
+  .flash-card {
+    height: 45rem;
+    width: 45rem;
+  }
+  .flash-card .word {
+    font-size: 3.7rem;
+  }
+  .flash-card .definition {
+    font-size: 1.7rem;
+  }
+
+  .flip-btn-inner-container {
+    width: 45rem;
+  }
+
+  .flash-card-btn-inner-container {
+    width: 45rem;
+  }
+  .flash-card-btn-inner-container .previous-flash-card {
+    width: 20rem;
+  }
+  .flash-card-btn-inner-container .next-flash-card {
+    width: 20rem;
+  }
+}
+@media only screen and (max-width: 470px) {
+  .flash-card {
+    height: 30rem;
+    width: 30rem;
+  }
+  .flash-card .word {
+    font-size: 2rem;
+  }
+  .flash-card .definition {
+    font-size: 1.4rem;
+  }
+
+  .flip-btn-inner-container {
+    width: 30rem;
+  }
+
+  .flash-card-btn-inner-container {
+    width: 30rem;
+  }
+  .flash-card-btn-inner-container .previous-flash-card {
+    width: 15rem;
+  }
+  .flash-card-btn-inner-container .next-flash-card {
+    width: 15rem;
+  }
 }/*# sourceMappingURL=style.css.map */
