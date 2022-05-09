@@ -26,9 +26,19 @@ button {
   font-size: 2rem;
   cursor: pointer;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 button:hover {
   box-shadow: none;
+}
+
+.button-disabled {
+  pointer-events: none;
+  box-shadow: none;
+  color: grey;
 }
 
 .nav-container {
@@ -194,7 +204,7 @@ button:hover {
   margin-top: 2rem;
   width: 60rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .flash-card-btn-inner-container .previous-flash-card {

@@ -106,7 +106,7 @@ function studyCards(){
     newFlashBtnContainer.append(newFlipBtnContainer);
 
     newflipBtn.setAttribute('class', 'flip');
-    newflipBtn.innerText = 'FLIP';
+    newflipBtn.innerText = 'FLIP TO DEFINITION';
     newFlipBtnContainer.append(newflipBtn);
 
     newFlashCardInnerContainer.setAttribute('class', 'flash-card-btn-inner-container');
@@ -131,35 +131,35 @@ function studyCards(){
     wordListTitle.style.opacity = 0;
 }
 
-// localStorage.clear(); 
-
-
-
 function flipCard(){
     const wordLocation = document.querySelector('.flash-word');
-
+    // const flipBtn = document.querySelector('.flip');
     if(data.length === 0) return
 
     //find current location index 
     wordLocation.innerText = data[currentWordIndex].word;
-    console.log(wordLocation.classList[1]);
-    
     
     if(wordLocation.classList[1] === 'word'){
         wordLocation.classList.remove('word');
         wordLocation.classList.add('definition');
         wordLocation.innerText = data[currentWordIndex].definition;
+        document.querySelector('.flip').innerText = 'FLIP TO WORD';
         //if word flip to definition
     }else if(wordLocation.classList[1] === 'definition'){
         wordLocation.classList.remove('definition');
         wordLocation.classList.add('word');
         //if definition flip to word 
         wordLocation.innerText = data[currentWordIndex].word;
+        document.querySelector('.flip').innerText = 'FLIP TO DEFINITION';
     }
-    
 }
 
 function nextCard(){
+    if(currentWordIndex === data.length-1){
+        document.querySelector('.next-flash-card').classList.add('button-disabled');
+    }
+    const prevBtn = document.querySelector('.previous-flash-card');
+    prevBtn.classList.remove('button-disabled');
     if(currentWordIndex < data.length-1){
         const wordLocation = document.querySelector('.flash-word');
         currentWordIndex++;
@@ -167,16 +167,25 @@ function nextCard(){
         if(wordLocation.classList[1] === 'word') return 
         wordLocation.classList.remove('definition');
         wordLocation.classList.add('word');
+        document.querySelector('.flip').innerText = 'FLIP TO DEFINITION';
     }else return
     
 }
 
 function previousCard(){
-
+    if(currentWordIndex === 0){
+        document.querySelector('.previous-flash-card').classList.add('button-disabled');
+    }
+    const nextBtn = document.querySelector('.next-flash-card');
+    nextBtn.classList.remove('button-disabled');
     if(currentWordIndex > 0){
         const wordLocation = document.querySelector('.flash-word');
         currentWordIndex--;
         wordLocation.innerText = data[currentWordIndex].word;
+        if(wordLocation.classList[1] === 'word') return 
+        wordLocation.classList.remove('definition');
+        wordLocation.classList.add('word');
+        document.querySelector('.flip').innerText = 'FLIP TO DEFINITION';
     }else return 
 }
 

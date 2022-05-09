@@ -16,13 +16,13 @@
 }
 
 .list-container{
-    // background-color:aquamarine;
     display: flex;
     height: 80vh;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     overflow-y: auto;
+    
     .item{
         display: flex;
         justify-content: space-between;
@@ -96,7 +96,7 @@
     margin-top: 2rem;
     width: 60rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     .previous-flash-card{

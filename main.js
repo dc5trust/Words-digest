@@ -18,7 +18,7 @@ saveBtn.addEventListener('click', saveWord);
 
 //global Variables
 
-const wordsArray = [];
+
 let id = 0;
 
 async function generateRandomWords (){
@@ -35,9 +35,16 @@ async function generateRandomWords (){
 function nextWord(){
     generateRandomWords();
     saveBtn.style.pointerEvents = 'auto';
+    saveBtn.classList.remove('button-disabled');
 }
 
 function saveWord(){
+   let wordsArray;
+   if(localStorage.getItem('savedWords')=== null){
+       wordsArray = [];
+   }else{
+       wordsArray = JSON.parse(localStorage.getItem('savedWords'));
+   }
     //check if word already exist, if so, return 'do nothing' 
    let isWordTheSame = false;
    let WordStorage = {word: newWord.innerText , definition: definition.innerText, index: id };
@@ -58,11 +65,11 @@ function saveWord(){
         }
                
    }else{
-       id++;
+    id++;
     wordsArray.push(WordStorage);
     localStorage.setItem('savedWords', JSON.stringify(wordsArray));
    }
-   
+   saveBtn.classList.add('button-disabled');
 }
 
 function checkLocalStorage(){
