@@ -6,6 +6,7 @@ const listContainer = document.querySelector('.list-container');
 const studyBtn = document.querySelector('.study');
 const deleteBtn = document.querySelector('.delete-btn');
 const items = document.querySelectorAll('.item');
+const wordListTitle = document.querySelector('.title-list');
 
 //flip, Next, Previous Buttons within the 'study' subsection
 //switch this to target addeventlistener, add it to .list-container ********
@@ -49,20 +50,9 @@ function createListFromWordsArray(){
 createListFromWordsArray();
 
 function studyFunctionality(e){
-    console.log(e.target.classList[0]);
     // if(e.target.classList[0] !== 'delete-btn') return 
     if(e.target.classList[0] === 'delete-btn'){
-        console.log(e.target.parentElement);
-        //each item has an ID and this will be used with splice() to locate the item within the array
-        reorganizedItemIds();
-        let itemSelected = e.target.parentElement;
-        //index of item added 
-        let indexOfSelected = itemSelected.classList[1];
-        console.log(indexOfSelected, 'index of selected');
-        data.splice(indexOfSelected, 1);
-        
-        localStorage.setItem('savedWords', JSON.stringify(data));
-        itemSelected.remove();
+        deleteWord(e);
     }else if(e.target.classList[0] === 'flip'){
         flipCard();
     }else if(e.target.classList[0] === 'previous-flash-card'){
@@ -76,7 +66,6 @@ function studyFunctionality(e){
 function reorganizedItemIds(){
     const items = document.querySelectorAll('.item');
     items.forEach((word, index)=>{
-        console.log(index);
         word.setAttribute('class', `item ${index}`);
     });
 }
@@ -134,7 +123,12 @@ function studyCards(){
 
     //hide the study button and reveal the study button after 
 
-    studyBtn.setAttribute('style', 'opacity: 0');
+    // studyBtn.setAttribute('style', 'opacity: 0 point-events: none');
+    //adddddd*********************** cursor pointer of none
+    studyBtn.style.opacity = 0;
+    studyBtn.style.pointerEvents = 'none';
+    //hide the word List title 
+    wordListTitle.style.opacity = 0;
 }
 
 // localStorage.clear(); 
@@ -146,9 +140,6 @@ function flipCard(){
 
     if(data.length === 0) return
 
-    data.forEach((word)=>{
-        console.log(word);
-    });
     //find current location index 
     wordLocation.innerText = data[currentWordIndex].word;
     console.log(wordLocation.classList[1]);
@@ -169,18 +160,38 @@ function flipCard(){
 }
 
 function nextCard(){
-    //set currentWordIndex limit depending on the size of the array
-    
-    console.log(data.length);
-    console.log(currentWordIndex);
     if(currentWordIndex < data.length-1){
         const wordLocation = document.querySelector('.flash-word');
         currentWordIndex++;
         wordLocation.innerText = data[currentWordIndex].word;
+        if(wordLocation.classList[1] === 'word') return 
+        wordLocation.classList.remove('definition');
+        wordLocation.classList.add('word');
     }else return
     
 }
 
 function previousCard(){
+
+    if(currentWordIndex > 0){
+        const wordLocation = document.querySelector('.flash-word');
+        currentWordIndex--;
+        wordLocation.innerText = data[currentWordIndex].word;
+    }else return 
+}
+
+function deleteWord(e){
+    //each item has an ID and this will be used with splice() to locate the item within the array
+    reorganizedItemIds();
+    let itemSelected = e.target.parentElement;
+    //index of item added 
+    let indexOfSelected = itemSelected.classList[1];
+    data.splice(indexOfSelected, 1);
+    
+    localStorage.setItem('savedWords', JSON.stringify(data));
+    itemSelected.remove();
+}
+
+function checkArraySize(limit){
 
 }
