@@ -4,7 +4,7 @@
 ## Link to Web Application
 https://word-digest.netlify.app
 
-## Tools Used
+## Build With
 <ul>
   <li>HTML</li>
   <li>CSS</li>
@@ -32,7 +32,7 @@ https://word-digest.netlify.app
 <img width="390" alt="Screen Shot 2022-05-09 at 10 16 16 PM" src="https://user-images.githubusercontent.com/61483178/167547495-f3ad3bbf-5f09-447b-8a26-793b7584cb64.png">
 <img width="390" alt="Screen Shot 2022-05-09 at 10 16 27 PM" src="https://user-images.githubusercontent.com/61483178/167547502-2fe32503-c7b9-4a4b-89eb-9c3d09e04aa2.png">
     
-## Features Coming Soon
+## Roadmap
 <ul>
   <li>Add Animations to study cards</li>
   <li>Add Animations to delete word from list</li>
