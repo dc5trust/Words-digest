@@ -25,3 +25,4 @@ Features Coming Soon
   <li>Add Animations to delete word from list</li>
   <li>Add Pronunciations</li>
 </ul>
+<img width="1271" alt="Screen Shot 2022-05-09 at 6 04 47 PM" src="https://user-images.githubusercontent.com/61483178/167522282-c339c276-964d-4852-b230-1032dc4b4e8a.png">
