@@ -1,20 +1,21 @@
 #list-main-container{
-    // background-color: bisque;
     min-height: 93.5vh;
     .title-list-container{
         height: 5vh;
         display: flex;
         justify-content: center;
-        align-items: center; 
-            .title-list{    
-                font-size: 2.5rem;
-                
-            }
+        align-items: center;   
+        .title-list{    
+            font-size: 2.5rem;
+        }
     }
-
-    
 }
 
+/* 
+
+Word List & Container 
+
+*/
 .list-container{
     display: flex;
     height: 80vh;
@@ -22,6 +23,7 @@
     align-items: center;
     flex-direction: column;
     overflow-y: auto;
+    
     .item{
         display: flex;
         justify-content: space-between;
@@ -45,6 +47,11 @@
     }
 }
 
+/* 
+
+Study Card (when study button is pressed )
+
+*/
 .list-study-btn-container{
     height: 8.5vh;
     display: flex;
@@ -59,7 +66,6 @@
 
 .flash-card{
     margin-top: 2rem;
-    // background-color: rgb(255, 255, 255);
     border: 4px solid rgb(251, 139, 78);
     box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
     height: 60rem;
@@ -80,7 +86,11 @@
         font-size: 3rem;
     }
 }
+/* 
 
+FLIP button & container for Study Card
+
+*/
 
 .flip-btn-inner-container{
     width: 60rem;
@@ -91,6 +101,11 @@
     }
 }
 
+/* 
+
+NEXT & PREVIOUS Buttons & Container for Study Card
+
+*/
 .flash-card-btn-inner-container{
     margin-top: 2rem;
     width: 60rem;
@@ -99,11 +114,9 @@
     align-items: center;
 
     .previous-flash-card{
-        // padding: 1.5rem 5rem;
         width: 23rem;
     }
     .next-flash-card{
-        // padding: 1.5rem 5rem;
         width: 23rem;
     }
 }

@@ -41,6 +41,11 @@ button:hover {
   color: grey;
 }
 
+/* 
+
+Navigation 
+
+*/
 .nav-container {
   background-color: rgb(251, 139, 78);
   width: 100%;
@@ -72,6 +77,11 @@ button:hover {
   font-size: 2.5rem;
 }
 
+/* 
+
+Body from the home Page (index)
+
+*/
 #main-content-body {
   min-height: 93.5vh;
   display: flex;
@@ -129,6 +139,11 @@ button:hover {
   font-size: 2.5rem;
 }
 
+/* 
+
+Word List & Container 
+
+*/
 .list-container {
   display: flex;
   height: 80vh;
@@ -159,6 +174,11 @@ button:hover {
   box-shadow: none;
 }
 
+/* 
+
+Study Card (when study button is pressed )
+
+*/
 .list-study-btn-container {
   height: 8.5vh;
   display: flex;
@@ -192,6 +212,11 @@ button:hover {
   font-size: 3rem;
 }
 
+/* 
+
+FLIP button & container for Study Card
+
+*/
 .flip-btn-inner-container {
   width: 60rem;
   margin-top: 1rem;
@@ -200,6 +225,11 @@ button:hover {
   width: 100%;
 }
 
+/* 
+
+NEXT & PREVIOUS Buttons & Container for Study Card
+
+*/
 .flash-card-btn-inner-container {
   margin-top: 2rem;
   width: 60rem;

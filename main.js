@@ -1,35 +1,30 @@
-// import {double, generateRandomWords} from './utils.js';
-
-
 const content = document.querySelector('.content-box');
 const newWord = document.querySelector('.word');
-// const pronunciation = document.querySelector('.pronunciation')
 const definition = document.querySelector('.definition');
 
 //buttons
 const saveBtn = document.querySelector('#save-btn');
 const nextBtn = document.querySelector('#next-btn');
-//list 
-
 
 //addEventListeners
 nextBtn.addEventListener('click', nextWord);
 saveBtn.addEventListener('click', saveWord);
 
 //global Variables
-
-
 let id = 0;
 
 async function generateRandomWords (){
-    const result = await fetch('https://random-words-api.vercel.app/word');
-    const data = await result.json();
-    newWord.innerText = data[0].word;
-    definition.innerText = data[0].definition;
-    return;
+    try {
+        const result = await fetch('https://random-words-api.vercel.app/word');
+        const data = await result.json();
+        newWord.innerText = data[0].word;
+        definition.innerText = data[0].definition;
+        return;
+    } catch (error) {
+        return error
+    }
 }
 
-// generateRandomWords();
 
 //hit the next button
 function nextWord(){
@@ -45,7 +40,7 @@ function saveWord(){
    }else{
        wordsArray = JSON.parse(localStorage.getItem('savedWords'));
    }
-    //check if word already exist, if so, return 'do nothing' 
+    //check if word already exist, if so, return 
    let isWordTheSame = false;
    let WordStorage = {word: newWord.innerText , definition: definition.innerText, index: id };
    if(wordsArray.length !== 0){
@@ -56,26 +51,17 @@ function saveWord(){
                 return; 
             }
         });
-        
+        //if word doesn't exist, push into wordsArray and add wordsarray into localStorage
         if(isWordTheSame === false){
              id++;
              wordsArray.push(WordStorage);
-             console.log(wordsArray.length);
              localStorage.setItem('savedWords', JSON.stringify(wordsArray));
         }
-               
+    //this was added for the when the Array addes its first element            
    }else{
     id++;
     wordsArray.push(WordStorage);
     localStorage.setItem('savedWords', JSON.stringify(wordsArray));
    }
    saveBtn.classList.add('button-disabled');
-}
-
-function checkLocalStorage(){
-    if(localStorage.getItem('savedWords') === null){
-        return [];
-    }else {
-        return wordsArray = JSON.parse(localStorage.getItem('savedWords'))
-    }
 }

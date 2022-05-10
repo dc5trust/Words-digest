@@ -9,18 +9,15 @@ const items = document.querySelectorAll('.item');
 const wordListTitle = document.querySelector('.title-list');
 
 //flip, Next, Previous Buttons within the 'study' subsection
-//switch this to target addeventlistener, add it to .list-container ********
 const flipBtn = document.querySelector('.flip');
 const nextBtn = document.querySelector('.next-flash-card');
 const prevBtn = document.querySelector('.previous-flash-card')
 const studyListBtnContainer = document.querySelector('.flash-card-btn-container');
-//addEventlisteners 
-listContainer.addEventListener('click', studyFunctionality);
-// studyListBtnContainer.addEventListener('click', studyFunctionality);
 
+//AddEventlisteners 
+listContainer.addEventListener('click', studyFunctionality);
 studyBtn.addEventListener('click', studyCards);
-// flipBtn.addEventListener('click', flipCard);
-// nextBtn.addEventListener('click', nextCard);
+
 //Global Variables
 let currentWordIndex = 0;
 
@@ -28,8 +25,6 @@ let currentWordIndex = 0;
 function createListFromWordsArray(){
     if(data === null ) return
     data.forEach((word)=>{
-        //create item
-        // word.index
         const newItem = document.createElement('div');
         newItem.setAttribute('class', `item ${word.index}`);
         //create location to insert word & button
@@ -71,9 +66,10 @@ function reorganizedItemIds(){
 }
 
 function studyCards(){
-    //localstorage is empty return
+    //if localstorage is empty return
     if(data.length === 0) return 
-    //delete items
+    
+    //delete all items in the container to prep for the study card
     const items = document.querySelectorAll('.item');
     items.forEach((item, index)=>{
         item.remove();
@@ -122,9 +118,6 @@ function studyCards(){
     newPreviousBtn.innerText = 'PREVIOUS'
 
     //hide the study button and reveal the study button after 
-
-    // studyBtn.setAttribute('style', 'opacity: 0 point-events: none');
-    //adddddd*********************** cursor pointer of none
     studyBtn.style.opacity = 0;
     studyBtn.style.pointerEvents = 'none';
     //hide the word List title 
@@ -133,31 +126,33 @@ function studyCards(){
 
 function flipCard(){
     const wordLocation = document.querySelector('.flash-word');
-    // const flipBtn = document.querySelector('.flip');
+    //if data array is empty return
     if(data.length === 0) return
 
     //find current location index 
     wordLocation.innerText = data[currentWordIndex].word;
-    
+    //if a word is displayed switch to definition
     if(wordLocation.classList[1] === 'word'){
         wordLocation.classList.remove('word');
         wordLocation.classList.add('definition');
         wordLocation.innerText = data[currentWordIndex].definition;
         document.querySelector('.flip').innerText = 'FLIP TO WORD';
-        //if word flip to definition
+    
+        //if a definition is displayed switch to word
     }else if(wordLocation.classList[1] === 'definition'){
         wordLocation.classList.remove('definition');
         wordLocation.classList.add('word');
-        //if definition flip to word 
         wordLocation.innerText = data[currentWordIndex].word;
         document.querySelector('.flip').innerText = 'FLIP TO DEFINITION';
     }
 }
 
 function nextCard(){
+    //check if end of array has been reached, if so disable the next button 
     if(currentWordIndex === data.length-1){
         document.querySelector('.next-flash-card').classList.add('button-disabled');
     }
+    //re-enable the previous button that might of been disabled 
     const prevBtn = document.querySelector('.previous-flash-card');
     prevBtn.classList.remove('button-disabled');
     if(currentWordIndex < data.length-1){
@@ -193,14 +188,11 @@ function deleteWord(e){
     //each item has an ID and this will be used with splice() to locate the item within the array
     reorganizedItemIds();
     let itemSelected = e.target.parentElement;
-    //index of item added 
+    //index of item added (taken from the ID that was added as a class)
     let indexOfSelected = itemSelected.classList[1];
+    //delete the specific index location using the ID that was added
     data.splice(indexOfSelected, 1);
-    
+    //re-add altered array back into local storage
     localStorage.setItem('savedWords', JSON.stringify(data));
     itemSelected.remove();
-}
-
-function checkArraySize(limit){
-
 }
