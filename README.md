@@ -1,5 +1,5 @@
 # Words-digest
-A web application design to improve vocabulary at all levels. Users can save desired words and practice learning the meaning of saved words.
+<bold>A web application design to improve vocabulary at all levels. Users can save desired words and practice learning the meaning of saved words.</body>
 
 Tools Used:
 <ul>
