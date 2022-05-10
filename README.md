@@ -1,5 +1,5 @@
 # Words-digest
-## A web application design to improve vocabulary at all levels. Users can save desired words and practice learning the meaning of saved words.
+## A web application design to improve vocabulary at all levels. Users can save desired words and practice/study saved words in a flash card like format.
 
 ## Tools Used:
 <ul>
@@ -7,7 +7,7 @@
   <li>CSS</li>
   <li>SASS</li>
   <li>JAVASCRIPT</li>
-  <li>Random Words API</li>
+  <li><a href='https://github.com/mcnaveen/Random-Words-API'>Random Words API<a></li>
 </ul>
 
 ## Feature List:
