@@ -19,12 +19,13 @@ Feature List:
   <li>Once word is learned, User may delete the word from local storage</li>
 </ul>
 
+<img width="1271" alt="Screen Shot 2022-05-09 at 6 04 47 PM" src="https://user-images.githubusercontent.com/61483178/167522282-c339c276-964d-4852-b230-1032dc4b4e8a.png">
+<img width="1274" alt="Screen Shot 2022-05-09 at 6 06 00 PM" src="https://user-images.githubusercontent.com/61483178/167522398-fd738cae-9868-4595-bcf5-8573d384d3ff.png">
+<img width="1275" alt="Screen Shot 2022-05-09 at 6 06 09 PM" src="https://user-images.githubusercontent.com/61483178/167522404-91f9f715-34d0-4c99-a93a-6195f0b3001d.png">
+
 Features Coming Soon
 <ul>
   <li>Add Animations to study cards</li>
   <li>Add Animations to delete word from list</li>
   <li>Add Pronunciations</li>
 </ul>
-<img width="1271" alt="Screen Shot 2022-05-09 at 6 04 47 PM" src="https://user-images.githubusercontent.com/61483178/167522282-c339c276-964d-4852-b230-1032dc4b4e8a.png">
-<img width="1274" alt="Screen Shot 2022-05-09 at 6 06 00 PM" src="https://user-images.githubusercontent.com/61483178/167522398-fd738cae-9868-4595-bcf5-8573d384d3ff.png">
-<img width="1275" alt="Screen Shot 2022-05-09 at 6 06 09 PM" src="https://user-images.githubusercontent.com/61483178/167522404-91f9f715-34d0-4c99-a93a-6195f0b3001d.png">
