@@ -1,6 +1,9 @@
 # Words-digest
 ## A web application design to improve vocabulary at all levels. Users can save desired words and practice/study saved words in a flash card like format.
 
+## Link to Web Application
+https://word-digest.netlify.app
+
 ## Tools Used
 <ul>
   <li>HTML</li>
@@ -10,7 +13,7 @@
   <li><a href='https://github.com/mcnaveen/Random-Words-API'>Random Words API<a></li>
 </ul>
 
-## Feature List
+## Features
 <ul>
   <li>Fetch new words along with definitions</li>
   <li>Save desired words to a local database</li>
